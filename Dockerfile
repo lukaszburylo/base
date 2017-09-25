@@ -6,3 +6,11 @@ ENV DEBIAN_FRONTEND noninteractive
 
 ENV LC_ALL C.UTF-8
 ENV TERM xterm
+
+RUN apt-get -qq update &&\
+    apt-get dist-upgrade -y --no-install-recommends
+
+RUN apt-get clean &&\
+    rm -rf /build &&\
+    rm -rf /tmp/* /var/tmp/* &&\
+    rm -rf /var/lib/apt/lists/*
