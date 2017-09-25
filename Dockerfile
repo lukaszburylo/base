@@ -11,6 +11,7 @@ RUN apt-get -qq update &&\
     apt-get dist-upgrade -y --no-install-recommends
 
 RUN apt-get clean &&\
+    apt-get autoremove &&\
     rm -rf /build &&\
     rm -rf /tmp/* /var/tmp/* &&\
     rm -rf /var/lib/apt/lists/*
